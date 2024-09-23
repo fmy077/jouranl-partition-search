@@ -5,10 +5,10 @@ export async function searchPartitionByName(){
         items = ztoolkit.getGlobal("ZoteroPane").getSelectedItems();
         for(let item of items){
             if(item.itemType != "journalArticle")continue;
-            let journal_name = item.getField("publicationTitle");
+            let journal_issn = item.getField('ISSN');
             ztoolkit.log("【search】")
-            ztoolkit.log(REQUEST_URL_PREFIX + journal_name)
-            const resp =  await Zotero.HTTP.request("GET", REQUEST_URL_PREFIX + journal_name);
+            ztoolkit.log(REQUEST_URL_PREFIX + journal_issn)
+            const resp =  await Zotero.HTTP.request("GET", REQUEST_URL_PREFIX + journal_issn);
             if (resp.status !== 200) {
                 Zotero.log("error request")
                 throw new Error(`HTTP error! Status: ${resp.status}`);
