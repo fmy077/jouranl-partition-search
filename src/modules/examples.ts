@@ -168,6 +168,7 @@ export class UIExampleFactory {
             commandListener: (ev) => searchPartitionByName(),
           },
         ],
+        icon: "chrome://zotero/skin/16/universal/book.svg",
       },
       "before",
       document.querySelector(
